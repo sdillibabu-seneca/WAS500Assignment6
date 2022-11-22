@@ -1,0 +1,91 @@
+html {
+    background-color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.sidenav {
+    background-color: rgb(31, 32, 33);
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 1;
+    left: 1;
+    padding-top: 20px;
+    text-align: center;
+    border-right: 5px solid goldenrod;
+
+}
+
+.sidenav a {
+    padding: 5px 10px 5px 15px;
+    font-size: xx-large;
+    color: goldenrod;
+    display: block;
+}
+
+.sidenav a:hover {
+    background-color: black;
+}
+
+.title {
+    margin-left: 220px;
+    background-color: rgb(31, 32, 33);
+    padding: 20px 30px 20px 30px;
+    color: goldenrod;
+    font-size: x-large;
+    border: 5px solid goldenrod;
+    border-radius: 5px;
+}
+
+.main {
+    margin-left: 220px;
+    background-color: rgb(74, 77, 79);
+    padding: 20px 30px 20px 30px;
+    border: 5px solid goldenrod;
+    border-radius: 5px;
+    vertical-align: middle;
+}
+
+.book-body {
+    background-color: rgb(31, 32, 33);
+    padding: 20px 15px 20px 15px;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+.body {
+    background-color: rgb(31, 32, 33);
+    padding: 20px 15px 20px 15px;
+    color: white;
+    border-radius: 5px;
+    text-align: left;
+}
+
+table, td {
+    padding: 20px 30px 10px 30px; 
+    width: 100%;
+}
+
+input[type="submit"] {
+    padding: 15px 30px;
+    background-color: goldenrod;
+    color: white;
+    border: 1px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    padding: 15px 30px;
+    background-color: white;
+    color: goldenrod;
+    border: 1px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
