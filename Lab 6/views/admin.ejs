@@ -1,0 +1,28 @@
+<div class="body" style="padding: 0px 0px 0px 0px;">
+    <table class="admin">
+        <thead>
+            <tr>
+                <th class="admin"><h3>ID</h3></th>
+                <th class="admin"><h3>Title</h3></th>
+                <th class="admin"><h3>Author</h3></th>
+                <th class="admin"><h3>Publisher</h3></th>
+                <th class="admin"><h3>Edit</h3></th>
+                <th class="admin"><h3>Delete</h3></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% books.forEach(info => 
+                { %>
+                    <tr>
+                        <td class="admin"><a href="./books/<%- info.id %>"><%- info.id %></a></td>
+                        <td class="admin"><a href="./books/<%- info.id %>"><%- info.title %></a></td>
+                        <td class="admin"><a href="./books/<%- info.id %>"><%- info.author %></a></td>
+                        <td class="admin"><a href="./books/<%- info.id %>"><%- info.publisher %></a></td>
+                        <td class="admin"><button onclick="document.location='./edit/<%- info.id %>'"><i class="fa fa-edit"></i></button></td>
+                        <td class="admin"><button onclick="if(confirm('Are you sure you want to delete this book?')){document.location='./books/<%- info.id %>/delete?_method=DELETE'}else{return false;};"><i class="fa fa-trash"></i></button></td>
+                    </tr>
+                <% });  
+            %>
+        </tbody>
+    </table>
+</div>

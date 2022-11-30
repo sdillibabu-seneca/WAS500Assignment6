@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const methodOverride = require("method-override");
 const express = require("express"),
   app = express(),
   Books = require("./models/books"),
@@ -18,9 +18,14 @@ app.use(
 );
 
 app.use(express.json());
+app.use(
+  methodOverride("_method", {
+    methods: ["POST", "GET"]
+  })
+);
 
 mongoose.connect(
-  "mongodb+srv://sdillibabu:WAS500@was500-books.adramuw.mongodb.net/?retryWrites=true&w=majority",
+  "mongodb+srv://sdillibabu:WAS500@was500-books.yjhil0b.mongodb.net/?retryWrites=true&w=majority",
   { useUnifiedTopology: true }
 );
 
@@ -40,23 +45,39 @@ app.get("", (req, res) => {
   res.render('index');
 });
 
-app.get("/books.html", BooksController.getAllBooks, (req, res) => {
+app.get("/books", BooksController.getAllBooks, (req, res) => {
   res.render('books', { books: req.data });
 });
 
-app.get("/contact.html", (req, res) => {
+app.get("/admin", BooksController.getAllBooks, (req, res) => {
+  res.render('admin', { books: req.data });
+});
+
+app.get("/contact", (req, res) => {
   res.render('contact');
 });
 
-app.get("/survey.html", (req, res) => {
+app.get("/survey", (req, res) => {
   res.render('survey');
 });
 
-app.get("/books/:books", BooksController.getBook, (req, res) => {
+app.get("/addnewbook", (req, res) => {
+  res.render('addnewbook');
+});
+
+app.post("/create", BooksController.createNewBook, BooksController.redirectView);
+app.post("/books/:id/update", BooksController.updateBook, BooksController.redirectView);
+app.delete("/books/:id/delete", BooksController.deleteBook, BooksController.redirectView);
+
+app.get("/books/:id", BooksController.getBook, (req, res) => {
   res.render('bookpage', { info: req.data });
 });
 
-app.get("/honesty.html", (req, res) => {
+app.get("/edit/:id", BooksController.getBook, (req, res) => {
+  res.render('edit', { info: req.data });
+});
+
+app.get("/honesty", (req, res) => {
   res.render('honesty');
 });
 
